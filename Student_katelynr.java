@@ -23,6 +23,8 @@ public class Student_katelynr implements Student {
         }
 
         int n = schools.size();
+
+        // IM NOT SURE THIS IS THE RIGHT WAY TO CONVERT FROM PERCENTILE TO INDEX IN ARBITARY LENGTH ARRAY
         int orig_index = (int) Math.floor((1 - (aptitude / S)) * n) - 1;
 
         int[] top_schools = new int[10];
@@ -34,11 +36,11 @@ public class Student_katelynr implements Student {
           index++;
         }
 
-        Arrays.sort(top_synergies);
+        Arrays.sort(top_synergies); // sorted from least synergy to most
 
         int k = 0;
         for (int i = (top_synergies.length - 1); i >= 0; i--){
-          for(int j = orig_index; j < orig_index+10; j++){
+          for(int j = orig_index; j < (orig_index+10); j++){
             if (top_synergies[i] == syns[j]){
               top_schools[k] = j;
               syns[j] = -1;
